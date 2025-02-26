@@ -146,20 +146,29 @@ align-items: center;
 
 .grid-container{
 display: grid;
-grid-template-columns: repeat(5, 350px);
+grid-template-columns: repeat(auto-fit, 380px);
 grid-template-rows: 250px;
 width: 100%;
 height: 500px;
 grid-gap: 10px;
 margin: 100px;
+justify-content: center;
 }
 
 .grid-item{
 background-color: black;
+
 }
 
-.grid-item p{
+
+.grid-item:hover{
+background-color: pink;
+}
+
+
+.grid-item h1{
 background-color: #0492C2;
+font-size: 1em;
 margin: 0;
 text-align: center;
 color: white;
@@ -167,14 +176,58 @@ font-weight: bold;
 padding: 10px;
 }
 
+.grid-item p{
+position: relative;
+bottom: 150px;
+text-align: center;
+color: white;
+display: none;
+}
+
+
 .grid-item.item1{
 grid-column: 1 / 2;
 grid-row: 1 / 1;
 
 }
 
+
 .grid-item img {
-  width: 100%;  /* Make image take full width of the grid item */
-  height: 100%; /* Make image take full height of the grid item */
-  object-fit: cover; /* Ensures the image fills the space while maintaining aspect ratio */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease;
 }
+
+
+.grid-item img:hover {
+  filter: brightness(50%);
+}
+
+
+.grid-item p {
+  position: relative;
+  bottom: 150px;
+  text-align: center;
+  color: white;
+  display: none;
+  transition: display 0.3s ease;
+}
+
+
+.grid-item img:hover + p {
+  display: block;
+  bottom: 0;
+}
+
+
+.grid-item p {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 100%;
+}
+
